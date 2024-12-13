@@ -1,21 +1,33 @@
-// Função que altera o status do botão entre "Alugar" e "Devolver"
-function alterarStatus(gameId) {
-    // Seleciona o botão do item clicado
-    const button = document.querySelector(`#game-${gameId} .dashboard__item__button`);
-    const item = document.querySelector(`#game-${gameId}`);
-    
-    // Verifica o texto atual do botão para determinar a ação
-    if (button.textContent === "Alugar") {
-        // Alugar: altera para "Devolver" e aplica a classe de devolução
-        button.textContent = "Devolver";
-        button.classList.add("dashboard__item__button--return");
-        button.classList.remove("dashboard__item__button--rent");
-        item.querySelector(".dashboard__item__img").classList.add("dashboard__item__img--rented");
-    } else {
-        // Devolver: altera para "Alugar" e remove a classe de devolução
-        button.textContent = "Alugar";
-        button.classList.add("dashboard__item__button--rent");
-        button.classList.remove("dashboard__item__button--return");
-        item.querySelector(".dashboard__item__img").classList.remove("dashboard__item__img--rented");
-    }
+let jogosAlugados = 0; // Contador global de jogos alugados
+
+// Exibe um alert com o número de jogos alugados
+function contarEExibirJogosAlugados() {
+    alert(`Total de jogos alugados: ${jogosAlugados}`);
 }
+
+// Altera o status de um jogo entre "Alugar" e "Devolver"
+function alterarStatus(id) {
+    let gameClicado = document.getElementById(`game-${id}`);
+    let imagem = gameClicado.querySelector('.dashboard__item__img');
+    let botao = gameClicado.querySelector('.dashboard__item__button');
+
+    if (imagem.classList.contains('dashboard__item__img--rented')) {
+        imagem.classList.remove('dashboard__item__img--rented');
+        botao.classList.remove('dashboard__item__button--return');
+        botao.textContent = 'Alugar';
+        jogosAlugados--;
+    } else {
+        imagem.classList.add('dashboard__item__img--rented');
+        botao.classList.add('dashboard__item__button--return');
+        botao.textContent = 'Devolver';
+        jogosAlugados++;
+    }
+
+    contarEExibirJogosAlugados();
+}
+
+// Inicializa o contador com os jogos já alugados na página
+document.addEventListener('DOMContentLoaded', function() {
+    jogosAlugados = document.querySelectorAll('.dashboard__item__img--rented').length;
+    contarEExibirJogosAlugados();
+});
