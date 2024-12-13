@@ -1,9 +1,11 @@
+![Captura de tela 2024-12-13 122917](https://github.com/user-attachments/assets/18db47c4-ed72-45c0-b01c-9252eaa6fa21)
+
 ************************************
-   GERENCIADOR DE STATUS DE JOGOS
+   ALUGUEL DE BOARD GAMES
 ************************************
 
-- Bem-vindo ao Gerenciador de Status de Jogos! Este projeto é parte de um sistema de locadora de jogos, 
-onde você pode interagir com uma lista de jogos e alternar o status entre "Alugar" e "Devolver". É uma 
+- Bem-vindo ao gerenciador de status do Aluguel de Board Games! Este projeto é parte de um sistema de locadora 
+de jogos, onde você pode interagir com uma lista de jogos e alternar o status entre "Alugar" e "Devolver". É uma 
 funcionalidade básica que faz parte de um projeto maior para gerenciamento de locações.
 
 📋 FUNCIONALIDADES:
